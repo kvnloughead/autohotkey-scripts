@@ -16,7 +16,7 @@ return
 
 ; Starts ssh agent and adds my private key
 ::ssh::
-  Send eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519
+  Send eval "$(ssh-agent -s)" && ssh-add ~/.ssh/id_ed25519 && ssh-add //wsl.localhost/Ubuntu-20.04/home/kevin/.ssh/id_ed25519
 Return
 
 ; ahk executable
@@ -27,6 +27,11 @@ Return
 ; contains ahk scripts so they load on startup
 ::startup::
   Send /c/Users/kvnlo/AppData/Roaming/Microsoft/Windows/Start\ Menu/Programs/Startup
+Return
+
+; wsl home directory for use in git bash
+::wslhome::
+  Send //wsl.localhost/Ubuntu-20.04/home/kevin
 Return
 
 ::gs::
